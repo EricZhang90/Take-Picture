@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Take Picture
+
+  Created by Eric on 2016-10-29.
+  Copyright © 2016 Eric. All rights reserved.
+*/
+
+"Add Pic" = "Add Pic";
+"Pick from photo library" = "Pick from photo library";
+"Take Pic" = "Take Pic";

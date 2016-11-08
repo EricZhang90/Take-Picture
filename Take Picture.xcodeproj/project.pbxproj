@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		078CCFE51DC484800028211A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 078CCFE71DC484800028211A /* Localizable.strings */; };
+		078CCFF21DC48BED0028211A /* LanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CCFF11DC48BED0028211A /* LanViewController.swift */; };
+		078CCFF41DC4F7B70028211A /* PhotoObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CCFF31DC4F7B70028211A /* PhotoObj.swift */; };
+		07A171591DC3AD9B00D038D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A171581DC3AD9B00D038D4 /* AppDelegate.swift */; };
+		07A1715B1DC3AD9B00D038D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A1715A1DC3AD9B00D038D4 /* ViewController.swift */; };
+		07A1715E1DC3AD9B00D038D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07A1715C1DC3AD9B00D038D4 /* Main.storyboard */; };
+		07A171611DC3AD9B00D038D4 /* Take_Picture.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07A1715F1DC3AD9B00D038D4 /* Take_Picture.xcdatamodeld */; };
+		07A171631DC3AD9B00D038D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07A171621DC3AD9B00D038D4 /* Assets.xcassets */; };
+		07A171661DC3AD9B00D038D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07A171641DC3AD9B00D038D4 /* LaunchScreen.storyboard */; };
+		07A1716F1DC3B4C300D038D4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A1716E1DC3B4C300D038D4 /* MobileCoreServices.framework */; };
+		07A171721DC3DCDD00D038D4 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A171701DC3DCDD00D038D4 /* Photo+CoreDataClass.swift */; };
+		07A171731DC3DCDD00D038D4 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A171711DC3DCDD00D038D4 /* Photo+CoreDataProperties.swift */; };
+		07A171751DC3DD0D00D038D4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A171741DC3DD0D00D038D4 /* CoreDataManager.swift */; };
+		07DF17C11DD1283800CDF19B /* PictureLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17C01DD1283800CDF19B /* PictureLibraryViewController.swift */; };
+		07DF17C41DD1D22C00CDF19B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17C31DD1D22C00CDF19B /* CollectionViewCell.swift */; };
+		07DF17CC1DD1F17600CDF19B /* FullScreenPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17CB1DD1F17600CDF19B /* FullScreenPhotoViewController.swift */; };
+		07DF17D31DD2352600CDF19B /* RoudedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17D21DD2352600CDF19B /* RoudedTextField.swift */; };
+		07DF17D61DD236DE00CDF19B /* RounderCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17D51DD236DE00CDF19B /* RounderCorner.swift */; };
+		07DF17DE1DD2429F00CDF19B /* Step+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17D81DD2429F00CDF19B /* Step+CoreDataClass.swift */; };
+		07DF17DF1DD2429F00CDF19B /* Step+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17D91DD2429F00CDF19B /* Step+CoreDataProperties.swift */; };
+		07DF17E01DD2429F00CDF19B /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17DA1DD2429F00CDF19B /* Recipe+CoreDataClass.swift */; };
+		07DF17E11DD2429F00CDF19B /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17DB1DD2429F00CDF19B /* Recipe+CoreDataProperties.swift */; };
+		07DF17E21DD2429F00CDF19B /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17DC1DD2429F00CDF19B /* Picture+CoreDataClass.swift */; };
+		07DF17E31DD2429F00CDF19B /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17DD1DD2429F00CDF19B /* Picture+CoreDataProperties.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		078CCFE01DC47F6E0028211A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		078CCFE61DC484800028211A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		078CCFEA1DC485380028211A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		078CCFED1DC489D30028211A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		078CCFF01DC48AAC0028211A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		078CCFF11DC48BED0028211A /* LanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanViewController.swift; sourceTree = "<group>"; };
+		078CCFF31DC4F7B70028211A /* PhotoObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoObj.swift; sourceTree = "<group>"; };
+		07A171551DC3AD9B00D038D4 /* Take Picture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Take Picture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07A171581DC3AD9B00D038D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07A1715A1DC3AD9B00D038D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		07A1715D1DC3AD9B00D038D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		07A171601DC3AD9B00D038D4 /* Take_Picture.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Take_Picture.xcdatamodel; sourceTree = "<group>"; };
+		07A171621DC3AD9B00D038D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07A171651DC3AD9B00D038D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		07A171671DC3AD9B00D038D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07A1716E1DC3B4C300D038D4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		07A171701DC3DCDD00D038D4 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		07A171711DC3DCDD00D038D4 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		07A171741DC3DD0D00D038D4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = ../CoreDataManager.swift; sourceTree = "<group>"; };
+		07DF17C01DD1283800CDF19B /* PictureLibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureLibraryViewController.swift; sourceTree = "<group>"; };
+		07DF17C31DD1D22C00CDF19B /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		07DF17CB1DD1F17600CDF19B /* FullScreenPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoViewController.swift; sourceTree = "<group>"; };
+		07DF17D21DD2352600CDF19B /* RoudedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoudedTextField.swift; sourceTree = "<group>"; };
+		07DF17D51DD236DE00CDF19B /* RounderCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RounderCorner.swift; sourceTree = "<group>"; };
+		07DF17D81DD2429F00CDF19B /* Step+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Step+CoreDataClass.swift"; path = "../Step+CoreDataClass.swift"; sourceTree = "<group>"; };
+		07DF17D91DD2429F00CDF19B /* Step+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Step+CoreDataProperties.swift"; path = "../Step+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		07DF17DA1DD2429F00CDF19B /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataClass.swift"; path = "../Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		07DF17DB1DD2429F00CDF19B /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataProperties.swift"; path = "../Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		07DF17DC1DD2429F00CDF19B /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Picture+CoreDataClass.swift"; path = "../Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
+		07DF17DD1DD2429F00CDF19B /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Picture+CoreDataProperties.swift"; path = "../Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07A171521DC3AD9A00D038D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07A1716F1DC3B4C300D038D4 /* MobileCoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07A1714C1DC3AD9A00D038D4 = {
+			isa = PBXGroup;
+			children = (
+				078CCFF31DC4F7B70028211A /* PhotoObj.swift */,
+				078CCFE71DC484800028211A /* Localizable.strings */,
+				07A171701DC3DCDD00D038D4 /* Photo+CoreDataClass.swift */,
+				07A171711DC3DCDD00D038D4 /* Photo+CoreDataProperties.swift */,
+				07A171571DC3AD9B00D038D4 /* Take Picture */,
+				07DF17C21DD1295300CDF19B /* Picture Library */,
+				07A171561DC3AD9B00D038D4 /* Products */,
+				07A1716D1DC3B4C300D038D4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		07A171561DC3AD9B00D038D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07A171551DC3AD9B00D038D4 /* Take Picture.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07A171571DC3AD9B00D038D4 /* Take Picture */ = {
+			isa = PBXGroup;
+			children = (
+				07A171581DC3AD9B00D038D4 /* AppDelegate.swift */,
+				07A1715A1DC3AD9B00D038D4 /* ViewController.swift */,
+				07A1715C1DC3AD9B00D038D4 /* Main.storyboard */,
+				07A171621DC3AD9B00D038D4 /* Assets.xcassets */,
+				07A171641DC3AD9B00D038D4 /* LaunchScreen.storyboard */,
+				07A171671DC3AD9B00D038D4 /* Info.plist */,
+				07A1715F1DC3AD9B00D038D4 /* Take_Picture.xcdatamodeld */,
+				078CCFF11DC48BED0028211A /* LanViewController.swift */,
+			);
+			path = "Take Picture";
+			sourceTree = "<group>";
+		};
+		07A1716D1DC3B4C300D038D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07A1716E1DC3B4C300D038D4 /* MobileCoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07DF17C21DD1295300CDF19B /* Picture Library */ = {
+			isa = PBXGroup;
+			children = (
+				07DF17D41DD236C200CDF19B /* Protocol */,
+				07DF17D51DD236DE00CDF19B /* RounderCorner.swift */,
+				07DF17CD1DD1F4CB00CDF19B /* Utities */,
+				07DF17D71DD2428C00CDF19B /* CoreData */,
+				07DF17E41DD242BE00CDF19B /* Model */,
+				07DF17C61DD1DAB400CDF19B /* View */,
+				07DF17C51DD1DA8400CDF19B /* Controller */,
+			);
+			name = "Picture Library";
+			path = "Take Picture";
+			sourceTree = "<group>";
+		};
+		07DF17C51DD1DA8400CDF19B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				07DF17C01DD1283800CDF19B /* PictureLibraryViewController.swift */,
+				07DF17CB1DD1F17600CDF19B /* FullScreenPhotoViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		07DF17C61DD1DAB400CDF19B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				07DF17C31DD1D22C00CDF19B /* CollectionViewCell.swift */,
+				07DF17D21DD2352600CDF19B /* RoudedTextField.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		07DF17CD1DD1F4CB00CDF19B /* Utities */ = {
+			isa = PBXGroup;
+			children = (
+				07A171741DC3DD0D00D038D4 /* CoreDataManager.swift */,
+			);
+			name = Utities;
+			sourceTree = "<group>";
+		};
+		07DF17D41DD236C200CDF19B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		07DF17D71DD2428C00CDF19B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				07DF17D81DD2429F00CDF19B /* Step+CoreDataClass.swift */,
+				07DF17D91DD2429F00CDF19B /* Step+CoreDataProperties.swift */,
+				07DF17DA1DD2429F00CDF19B /* Recipe+CoreDataClass.swift */,
+				07DF17DB1DD2429F00CDF19B /* Recipe+CoreDataProperties.swift */,
+				07DF17DC1DD2429F00CDF19B /* Picture+CoreDataClass.swift */,
+				07DF17DD1DD2429F00CDF19B /* Picture+CoreDataProperties.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		07DF17E41DD242BE00CDF19B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07A171541DC3AD9A00D038D4 /* Take Picture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07A1716A1DC3AD9B00D038D4 /* Build configuration list for PBXNativeTarget "Take Picture" */;
+			buildPhases = (
+				07A171511DC3AD9A00D038D4 /* Sources */,
+				07A171521DC3AD9A00D038D4 /* Frameworks */,
+				07A171531DC3AD9A00D038D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Take Picture";
+			productName = "Take Picture";
+			productReference = 07A171551DC3AD9B00D038D4 /* Take Picture.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07A1714D1DC3AD9A00D038D4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Eric;
+				TargetAttributes = {
+					07A171541DC3AD9A00D038D4 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = D2K38YQ2HK;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 07A171501DC3AD9A00D038D4 /* Build configuration list for PBXProject "Take Picture" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07A1714C1DC3AD9A00D038D4;
+			productRefGroup = 07A171561DC3AD9B00D038D4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07A171541DC3AD9A00D038D4 /* Take Picture */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07A171531DC3AD9A00D038D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07A171661DC3AD9B00D038D4 /* LaunchScreen.storyboard in Resources */,
+				078CCFE51DC484800028211A /* Localizable.strings in Resources */,
+				07A171631DC3AD9B00D038D4 /* Assets.xcassets in Resources */,
+				07A1715E1DC3AD9B00D038D4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07A171511DC3AD9A00D038D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07DF17C41DD1D22C00CDF19B /* CollectionViewCell.swift in Sources */,
+				07DF17E01DD2429F00CDF19B /* Recipe+CoreDataClass.swift in Sources */,
+				07A171611DC3AD9B00D038D4 /* Take_Picture.xcdatamodeld in Sources */,
+				07A1715B1DC3AD9B00D038D4 /* ViewController.swift in Sources */,
+				07A171721DC3DCDD00D038D4 /* Photo+CoreDataClass.swift in Sources */,
+				07DF17E11DD2429F00CDF19B /* Recipe+CoreDataProperties.swift in Sources */,
+				07A171731DC3DCDD00D038D4 /* Photo+CoreDataProperties.swift in Sources */,
+				07DF17CC1DD1F17600CDF19B /* FullScreenPhotoViewController.swift in Sources */,
+				07DF17E21DD2429F00CDF19B /* Picture+CoreDataClass.swift in Sources */,
+				07DF17D61DD236DE00CDF19B /* RounderCorner.swift in Sources */,
+				07DF17C11DD1283800CDF19B /* PictureLibraryViewController.swift in Sources */,
+				07A171751DC3DD0D00D038D4 /* CoreDataManager.swift in Sources */,
+				078CCFF21DC48BED0028211A /* LanViewController.swift in Sources */,
+				078CCFF41DC4F7B70028211A /* PhotoObj.swift in Sources */,
+				07DF17E31DD2429F00CDF19B /* Picture+CoreDataProperties.swift in Sources */,
+				07DF17DF1DD2429F00CDF19B /* Step+CoreDataProperties.swift in Sources */,
+				07DF17DE1DD2429F00CDF19B /* Step+CoreDataClass.swift in Sources */,
+				07A171591DC3AD9B00D038D4 /* AppDelegate.swift in Sources */,
+				07DF17D31DD2352600CDF19B /* RoudedTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		078CCFE71DC484800028211A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				078CCFE61DC484800028211A /* ja */,
+				078CCFEA1DC485380028211A /* Base */,
+				078CCFF01DC48AAC0028211A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		07A1715C1DC3AD9B00D038D4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07A1715D1DC3AD9B00D038D4 /* Base */,
+				078CCFED1DC489D30028211A /* ja */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		07A171641DC3AD9B00D038D4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07A171651DC3AD9B00D038D4 /* Base */,
+				078CCFE01DC47F6E0028211A /* ja */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07A171681DC3AD9B00D038D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07A171691DC3AD9B00D038D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07A1716B1DC3AD9B00D038D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D2K38YQ2HK;
+				INFOPLIST_FILE = "Take Picture/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Eric.Take-Picture";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		07A1716C1DC3AD9B00D038D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D2K38YQ2HK;
+				INFOPLIST_FILE = "Take Picture/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Eric.Take-Picture";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07A171501DC3AD9A00D038D4 /* Build configuration list for PBXProject "Take Picture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07A171681DC3AD9B00D038D4 /* Debug */,
+				07A171691DC3AD9B00D038D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07A1716A1DC3AD9B00D038D4 /* Build configuration list for PBXNativeTarget "Take Picture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07A1716B1DC3AD9B00D038D4 /* Debug */,
+				07A1716C1DC3AD9B00D038D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		07A1715F1DC3AD9B00D038D4 /* Take_Picture.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				07A171601DC3AD9B00D038D4 /* Take_Picture.xcdatamodel */,
+			);
+			currentVersion = 07A171601DC3AD9B00D038D4 /* Take_Picture.xcdatamodel */;
+			path = Take_Picture.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 07A1714D1DC3AD9A00D038D4 /* Project object */;
+}
