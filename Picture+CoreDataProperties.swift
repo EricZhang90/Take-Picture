@@ -2,13 +2,13 @@
 //  Picture+CoreDataProperties.swift
 //  Take Picture
 //
-//  Created by Eric on 2016-11-08.
+//  Created by Eric on 2016-11-09.
 //  Copyright © 2016 Eric. All rights reserved.
 //
 
 import Foundation
 import CoreData
-
+ 
 
 extension Picture {
 
@@ -16,7 +16,7 @@ extension Picture {
         return NSFetchRequest<Picture>(entityName: "Picture");
     }
 
-    @NSManaged public var picture: NSData?
+    @NSManaged public var pictureDate: Data?
     @NSManaged public var recipe: Recipe?
 
 }

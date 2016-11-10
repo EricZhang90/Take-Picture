@@ -24,8 +24,7 @@ class CoreDataManager {
         return recipe
     }
     
-    func update(entity entityClass: AnyClass, with data:Dictionary<String, Any>, by predicate:NSPredicate) {
-        let entityName = NSStringFromClass(entityClass)
+    func update(entity entityName: String, with data:Dictionary<String, Any>, by predicate:NSPredicate) {
         let request = NSFetchRequest<NSFetchRequestResult>()
         request.entity = NSEntityDescription.entity(forEntityName: entityName, in: moc)
         request.predicate = predicate
@@ -38,7 +37,19 @@ class CoreDataManager {
         }
     }
     
-
+    func fetchRecipe(by id: Double) -> Recipe? {
+        let request = NSFetchRequest<Recipe>()
+        request.entity = NSEntityDescription.entity(forEntityName: "Recipe", in: moc)
+        request.predicate = NSPredicate(format: "recipeID = %lf", id)
+        
+        do {
+            let results = try moc.fetch(request)
+            
+            return results.first
+        }catch {
+            fatalError("Failed to fetch Recipe: \(error)")
+        }
+    }
     
     
     func createPhotoEntity() -> Photo {

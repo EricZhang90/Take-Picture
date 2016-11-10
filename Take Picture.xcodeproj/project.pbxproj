@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0702BA941DD425F900DBDF88 /* Step+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702BA8E1DD425F900DBDF88 /* Step+CoreDataClass.swift */; };
+		0702BA951DD425F900DBDF88 /* Step+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702BA8F1DD425F900DBDF88 /* Step+CoreDataProperties.swift */; };
+		0702BA961DD425F900DBDF88 /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702BA901DD425F900DBDF88 /* Picture+CoreDataClass.swift */; };
+		0702BA971DD425F900DBDF88 /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702BA911DD425F900DBDF88 /* Picture+CoreDataProperties.swift */; };
+		0702BA981DD425F900DBDF88 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702BA921DD425F900DBDF88 /* Recipe+CoreDataClass.swift */; };
+		0702BA991DD425F900DBDF88 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702BA931DD425F900DBDF88 /* Recipe+CoreDataProperties.swift */; };
 		078CCFE51DC484800028211A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 078CCFE71DC484800028211A /* Localizable.strings */; };
 		078CCFF21DC48BED0028211A /* LanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CCFF11DC48BED0028211A /* LanViewController.swift */; };
 		078CCFF41DC4F7B70028211A /* PhotoObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CCFF31DC4F7B70028211A /* PhotoObj.swift */; };
@@ -25,15 +31,16 @@
 		07DF17CC1DD1F17600CDF19B /* FullScreenPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17CB1DD1F17600CDF19B /* FullScreenPhotoViewController.swift */; };
 		07DF17D31DD2352600CDF19B /* RoudedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17D21DD2352600CDF19B /* RoudedTextField.swift */; };
 		07DF17D61DD236DE00CDF19B /* RounderCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17D51DD236DE00CDF19B /* RounderCorner.swift */; };
-		07DF17DE1DD2429F00CDF19B /* Step+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17D81DD2429F00CDF19B /* Step+CoreDataClass.swift */; };
-		07DF17DF1DD2429F00CDF19B /* Step+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17D91DD2429F00CDF19B /* Step+CoreDataProperties.swift */; };
-		07DF17E01DD2429F00CDF19B /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17DA1DD2429F00CDF19B /* Recipe+CoreDataClass.swift */; };
-		07DF17E11DD2429F00CDF19B /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17DB1DD2429F00CDF19B /* Recipe+CoreDataProperties.swift */; };
-		07DF17E21DD2429F00CDF19B /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17DC1DD2429F00CDF19B /* Picture+CoreDataClass.swift */; };
-		07DF17E31DD2429F00CDF19B /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17DD1DD2429F00CDF19B /* Picture+CoreDataProperties.swift */; };
+		07DF17E61DD2EAD300CDF19B /* RecipeObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF17E51DD2EAD300CDF19B /* RecipeObj.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0702BA8E1DD425F900DBDF88 /* Step+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Step+CoreDataClass.swift"; path = "../Step+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0702BA8F1DD425F900DBDF88 /* Step+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Step+CoreDataProperties.swift"; path = "../Step+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0702BA901DD425F900DBDF88 /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Picture+CoreDataClass.swift"; path = "../Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0702BA911DD425F900DBDF88 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Picture+CoreDataProperties.swift"; path = "../Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0702BA921DD425F900DBDF88 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataClass.swift"; path = "../Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0702BA931DD425F900DBDF88 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataProperties.swift"; path = "../Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		078CCFE01DC47F6E0028211A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		078CCFE61DC484800028211A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		078CCFEA1DC485380028211A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -58,12 +65,7 @@
 		07DF17CB1DD1F17600CDF19B /* FullScreenPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoViewController.swift; sourceTree = "<group>"; };
 		07DF17D21DD2352600CDF19B /* RoudedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoudedTextField.swift; sourceTree = "<group>"; };
 		07DF17D51DD236DE00CDF19B /* RounderCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RounderCorner.swift; sourceTree = "<group>"; };
-		07DF17D81DD2429F00CDF19B /* Step+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Step+CoreDataClass.swift"; path = "../Step+CoreDataClass.swift"; sourceTree = "<group>"; };
-		07DF17D91DD2429F00CDF19B /* Step+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Step+CoreDataProperties.swift"; path = "../Step+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		07DF17DA1DD2429F00CDF19B /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataClass.swift"; path = "../Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
-		07DF17DB1DD2429F00CDF19B /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataProperties.swift"; path = "../Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		07DF17DC1DD2429F00CDF19B /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Picture+CoreDataClass.swift"; path = "../Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
-		07DF17DD1DD2429F00CDF19B /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Picture+CoreDataProperties.swift"; path = "../Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		07DF17E51DD2EAD300CDF19B /* RecipeObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeObj.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,12 +176,12 @@
 		07DF17D71DD2428C00CDF19B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				07DF17D81DD2429F00CDF19B /* Step+CoreDataClass.swift */,
-				07DF17D91DD2429F00CDF19B /* Step+CoreDataProperties.swift */,
-				07DF17DA1DD2429F00CDF19B /* Recipe+CoreDataClass.swift */,
-				07DF17DB1DD2429F00CDF19B /* Recipe+CoreDataProperties.swift */,
-				07DF17DC1DD2429F00CDF19B /* Picture+CoreDataClass.swift */,
-				07DF17DD1DD2429F00CDF19B /* Picture+CoreDataProperties.swift */,
+				0702BA8E1DD425F900DBDF88 /* Step+CoreDataClass.swift */,
+				0702BA8F1DD425F900DBDF88 /* Step+CoreDataProperties.swift */,
+				0702BA901DD425F900DBDF88 /* Picture+CoreDataClass.swift */,
+				0702BA911DD425F900DBDF88 /* Picture+CoreDataProperties.swift */,
+				0702BA921DD425F900DBDF88 /* Recipe+CoreDataClass.swift */,
+				0702BA931DD425F900DBDF88 /* Recipe+CoreDataProperties.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -187,6 +189,7 @@
 		07DF17E41DD242BE00CDF19B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				07DF17E51DD2EAD300CDF19B /* RecipeObj.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -266,24 +269,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				07DF17C41DD1D22C00CDF19B /* CollectionViewCell.swift in Sources */,
-				07DF17E01DD2429F00CDF19B /* Recipe+CoreDataClass.swift in Sources */,
+				0702BA941DD425F900DBDF88 /* Step+CoreDataClass.swift in Sources */,
+				0702BA981DD425F900DBDF88 /* Recipe+CoreDataClass.swift in Sources */,
 				07A171611DC3AD9B00D038D4 /* Take_Picture.xcdatamodeld in Sources */,
 				07A1715B1DC3AD9B00D038D4 /* ViewController.swift in Sources */,
+				0702BA991DD425F900DBDF88 /* Recipe+CoreDataProperties.swift in Sources */,
 				07A171721DC3DCDD00D038D4 /* Photo+CoreDataClass.swift in Sources */,
-				07DF17E11DD2429F00CDF19B /* Recipe+CoreDataProperties.swift in Sources */,
 				07A171731DC3DCDD00D038D4 /* Photo+CoreDataProperties.swift in Sources */,
+				0702BA971DD425F900DBDF88 /* Picture+CoreDataProperties.swift in Sources */,
 				07DF17CC1DD1F17600CDF19B /* FullScreenPhotoViewController.swift in Sources */,
-				07DF17E21DD2429F00CDF19B /* Picture+CoreDataClass.swift in Sources */,
 				07DF17D61DD236DE00CDF19B /* RounderCorner.swift in Sources */,
 				07DF17C11DD1283800CDF19B /* PictureLibraryViewController.swift in Sources */,
 				07A171751DC3DD0D00D038D4 /* CoreDataManager.swift in Sources */,
 				078CCFF21DC48BED0028211A /* LanViewController.swift in Sources */,
+				07DF17E61DD2EAD300CDF19B /* RecipeObj.swift in Sources */,
 				078CCFF41DC4F7B70028211A /* PhotoObj.swift in Sources */,
-				07DF17E31DD2429F00CDF19B /* Picture+CoreDataProperties.swift in Sources */,
-				07DF17DF1DD2429F00CDF19B /* Step+CoreDataProperties.swift in Sources */,
-				07DF17DE1DD2429F00CDF19B /* Step+CoreDataClass.swift in Sources */,
 				07A171591DC3AD9B00D038D4 /* AppDelegate.swift in Sources */,
+				0702BA961DD425F900DBDF88 /* Picture+CoreDataClass.swift in Sources */,
 				07DF17D31DD2352600CDF19B /* RoudedTextField.swift in Sources */,
+				0702BA951DD425F900DBDF88 /* Step+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
