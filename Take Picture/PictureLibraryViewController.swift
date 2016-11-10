@@ -33,24 +33,20 @@ class PictureLibraryViewController: UITableViewController, UICollectionViewDataS
     fileprivate var inputTF: RoudedTextField!
     
     fileprivate var name: String!
-    fileprivate var stepOne: String!
-    fileprivate var stepTwo: String!
-    fileprivate var stepThree: String!
+    fileprivate var steps = [String]()
+    
+    fileprivate let CDManager = CoreDataManager.manager
     
     //fileprivate var
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // view.backgroundColor = UIColor.lightGray
-        
-        // Do any additional setup after loading the view.
     }
 
     // MARK: collection view
-    func addCollectionView(in view: UIView) {
+    func addCollectionView(in superView: UIView) {
         
-        photoCollectionView = UICollectionView(frame: view.frame, collectionViewLayout: collectionLayout)
+        photoCollectionView = UICollectionView(frame: superView.frame, collectionViewLayout: collectionLayout)
         
         photoCollectionView.backgroundColor = UIColor.white
         
@@ -59,22 +55,35 @@ class PictureLibraryViewController: UITableViewController, UICollectionViewDataS
         
         photoCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
         
-        view.addSubview(photoCollectionView)
+        superView.addSubview(photoCollectionView)
     }
     
-    @IBAction func sharePics(_ sender: AnyObject) {
+    @IBAction func actions(_ sender: AnyObject) {
         let alertController = UIAlertController(title: "Actions", message: "Choose source", preferredStyle: .actionSheet)
-        let saveAction = UIAlertAction(title: "save", style: .default) { (UIAlertAction) in
+        
+        let save = UIAlertAction(title: "Save", style: .default) { (UIAlertAction) in
             self.saveRecipe()
         }
         
-        alertController.addAction(saveAction)
+        alertController.addAction(save)
+        
+        let load = UIAlertAction(title: "Load", style: .default) { (UIAlertAction) in
+            self.loadRecipe()
+        }
+        
+        alertController.addAction(load)
+        
+        let share = UIAlertAction(title: "Share", style: .default) { (UIAlertAction) in
+            self.shareRecipe()
+        }
+        
+        alertController.addAction(share)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(cancel)
         
         present(alertController, animated: true, completion: nil)
-    }
-    
-    func saveRecipe() {
-        
     }
     
     @IBAction func takePic(_ sender: AnyObject) {
@@ -265,16 +274,65 @@ extension PictureLibraryViewController: UITextFieldDelegate {
             name = textField.text
         }
         else if textField.tag == 10 {
-            stepOne = textField.text
+            steps[0] = textField.text!
         }
         else if textField.tag == 11 {
-            stepTwo = textField.text
+            steps[1] = textField.text!
         }
         else if textField.tag == 12 {
-            stepThree = textField.text
+            steps[2] = textField.text!
         }
 
         return true
+    }
+}
+
+// MARK: Right Button Actions
+extension PictureLibraryViewController {
+    func saveRecipe() {
+        guard name != nil, steps.count == 3 else {
+            return
+        }
+        
+        CDManager.deleteAll()
+        
+        let recipe = CDManager.create(entity: "Recipe") as! Recipe
+        
+        let predicate = NSPredicate(format: "objectID = %@", recipe.recipeID)
+        
+        let update: [String : Any] = ["name": name,
+                                      "createdDate": Date(),
+                                      "recipeID": 999]
+        
+        CDManager.update(entity: "Recipe", with: update, by: predicate)
+        
+        for i in 0..<steps.count {
+            let step: Step = CDManager.create(entity: "Step") as! Step
+            recipe.addToSteps(step)
+            let predicate = NSPredicate(format: "recipe.objectID = %", recipe.objectID)
+            CDManager.update(entity: "Step", with: ["desc": steps[i], "idx": Int16(i)], by:predicate)
+        }
+        
+        guard photos.count > 0 else {
+            return
+        }
+        
+        for i in 0..<photos.count {
+            let pic: Picture = CDManager.create(entity: "Picture") as! Picture
+            recipe.addToPictures(pic)
+            let predicate = NSPredicate(format: "recipe.objectID = %", recipe.objectID)
+            let picDate: Data = UIImagePNGRepresentation(photos[i])!
+            CDManager.update(entity: "Picture", with: ["desc": picDate, "idx": Int16(i)], by:predicate)
+        }
+        
+    }
+    
+    func shareRecipe() {
+        
+    }
+    
+    func loadRecipe() {
+        
     }
 }
 

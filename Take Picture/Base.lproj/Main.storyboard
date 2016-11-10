@@ -130,7 +130,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hx7-A1-PYg" id="BqX-Lf-M4v">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -143,7 +143,7 @@
                     <navigationItem key="navigationItem" id="Hwi-wd-b0B">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="wXT-aE-qs9">
                             <connections>
-                                <action selector="sharePics:" destination="EmY-7k-BJu" id="QW3-AS-oFf"/>
+                                <action selector="actions:" destination="EmY-7k-BJu" id="Iza-Cx-7w2"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NUO-c4-Nrz">

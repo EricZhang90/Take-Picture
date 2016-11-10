@@ -13,7 +13,7 @@ import CoreData
 class CoreDataManager {
     static let manager = CoreDataManager()
     var moc:NSManagedObjectContext { return self.persistentContainer.viewContext }
-    
+    /*
     func createRecipeEntity() -> Recipe {
         let recipe: Recipe = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: persistentContainer.viewContext) as! Recipe
         
@@ -22,6 +22,12 @@ class CoreDataManager {
         saveContext()
         
         return recipe
+    }
+    */
+    func create(entity: String) -> NSManagedObject {
+        let mo = NSEntityDescription.insertNewObject(forEntityName: entity, into: self.moc)
+        saveContext()
+        return mo
     }
     
     func update(entity entityName: String, with data:Dictionary<String, Any>, by predicate:NSPredicate) {
@@ -85,7 +91,7 @@ class CoreDataManager {
     }
     
     func deleteAll(){
-        let request = NSFetchRequest<Photo>(entityName: "Photo")
+        let request = NSFetchRequest<Photo>(entityName: "Recipe")
         request.predicate = NSPredicate(value: true)
         
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>)
