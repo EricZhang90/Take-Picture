@@ -42,7 +42,7 @@ class PictureLibraryViewController: UITableViewController, UICollectionViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.lightGray
+        // view.backgroundColor = UIColor.lightGray
         
         // Do any additional setup after loading the view.
     }
@@ -184,12 +184,9 @@ extension PictureLibraryViewController {
             frame.origin.x += 50.0
             frame.size.width -= 100.0
             
-            inputTF = RoudedTextField(frame: frame)
+            inputTF = RoudedTextField(frame: frame, superView: cell.contentView)
             inputTF.delegate = self
             inputTF.tag = indexPath.section * 10 + indexPath.row
-            
-            cell.contentView.addSubview(inputTF)
-            cell.contentView.bringSubview(toFront: inputTF)
         }
         else {
             addCollectionView(in: cell.contentView)

@@ -10,12 +10,9 @@ import UIKit
 
 class RoudedTextField : UITextField, RounderCorner {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    convenience init(frame: CGRect, superView: UIView) {
+        self.init(frame: frame)
         roundCorner()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        superView.addSubview(self)
     }
 }
