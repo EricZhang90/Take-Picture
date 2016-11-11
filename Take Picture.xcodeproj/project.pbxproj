@@ -35,7 +35,6 @@
 		0702BA911DD425F900DBDF88 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Picture+CoreDataProperties.swift"; path = "../Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0702BA921DD425F900DBDF88 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataClass.swift"; path = "../Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0702BA931DD425F900DBDF88 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataProperties.swift"; path = "../Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		078CCFE01DC47F6E0028211A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		07A171551DC3AD9B00D038D4 /* Take Picture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Take Picture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07A171581DC3AD9B00D038D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07A1715D1DC3AD9B00D038D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -276,7 +275,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				07A171651DC3AD9B00D038D4 /* Base */,
-				078CCFE01DC47F6E0028211A /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
