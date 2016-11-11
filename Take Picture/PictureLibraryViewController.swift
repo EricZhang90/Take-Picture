@@ -39,6 +39,29 @@ class PictureLibraryViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleOpenURL),
+            name: NSNotification.Name(rawValue: "newRecipeComing"),
+            object: nil)
+    }
+    
+    func handleOpenURL() {
+        guard let url = UserDefaults.standard.url(forKey: "importURL"),
+            let recipeObj = RecipeObj.importFrom(url) else {
+            return
+        }
+        
+        recipeObj.createdDate = Date()
+        
+        CDManager.deleteAll()
+        
+        CDManager.save(recipeObj)
+        
+        loadRecipe()
+        
+        UserDefaults.standard.removeObject(forKey: "importURL")
     }
     
     @IBAction func actions(_ sender: AnyObject) {
@@ -331,7 +354,6 @@ extension PictureLibraryViewController {
             let picDate: Data = UIImagePNGRepresentation(photos[i])!
             CDManager.update(entity: "Picture", with: ["desc": picDate, "idx": Int16(i)], by:predicate)
         }
-        
     }
     
     func shareRecipe() {
@@ -355,6 +377,7 @@ extension PictureLibraryViewController {
             
             let sorter = NSSortDescriptor(key: "idx", ascending: true)
             
+            self.photos.removeAll()
             if let pictures = recipe.pictures {
                 for pic in pictures.sortedArray(using: [sorter]) {
                     let picEntity = pic as! Picture
@@ -362,6 +385,7 @@ extension PictureLibraryViewController {
                 }
             }
             
+            self.steps.removeAll()
             for step in recipe.steps!.sortedArray(using: [sorter]) {
                 let stepEntity: Step = step as! Step
                 self.steps.append(stepEntity.desc!)

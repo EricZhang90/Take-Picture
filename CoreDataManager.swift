@@ -9,6 +9,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class CoreDataManager {
     static let manager = CoreDataManager()
@@ -108,6 +109,34 @@ class CoreDataManager {
         photoEntity.createdDate = photoObj.createdDate
         photoEntity.id = photoObj.id
         photoEntity.photo = Data()
+        saveContext()
+    }
+    
+    func save(_ recipeObj: RecipeObj) {
+        let recipeEntity = create(entity: "Recipe") as! Recipe
+        
+        recipeEntity.name = recipeObj.name
+        recipeEntity.createdDate = recipeObj.createdDate
+        
+        for i in 0..<recipeObj.steps.count {
+            let step: Step = create(entity: "Step") as! Step
+            step.idx = Int16(i)
+            step.desc = recipeObj.steps[i]
+            recipeEntity.addToSteps(step)
+        }
+        
+        guard recipeObj.photos.count > 0 else {
+            saveContext()
+            return
+        }
+        
+        for i in 0..<recipeObj.photos.count {
+            let pic: Picture = create(entity: "Picture") as! Picture
+            pic.idx = Int16(i)
+            pic.pictureDate = recipeObj.photos[i]
+            recipeEntity.addToPictures(pic)
+        }
+        
         saveContext()
     }
     

@@ -16,6 +16,7 @@ class RecipeObj: NSObject, NSCoding {
     var photos = [Data]()
     var steps = [String]()
     
+    // Recipe Entity -> Recipe Object
     init(recipeID: Double) {
         let CDmanager = CoreDataManager.manager
         if let recipe = CDmanager.fetchRecipe(by: recipeID) {
@@ -36,7 +37,6 @@ class RecipeObj: NSObject, NSCoding {
                 let stepEntity: Step = step as! Step
                 self.steps.append(stepEntity.desc!)
             }
-            
         }
     }
     
