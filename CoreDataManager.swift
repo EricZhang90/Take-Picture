@@ -58,41 +58,8 @@ class CoreDataManager {
         }
     }
     
-    
-    func createPhotoEntity() -> Photo {
-        let photo: Photo = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: persistentContainer.viewContext) as! Photo
-        
-        photo.createdDate = Date()
-        
-        saveContext()
-        
-        return photo
-    }
-    
-    func addImageData(_ imageData: Data, toPhotoEntity: Photo!) {
-        toPhotoEntity.photo = imageData
-        saveContext()
-    }
-    
-    func fetchPhoto(byID id: Int) -> Photo? {
-        let request = NSFetchRequest<Photo>()
-        request.entity = NSEntityDescription.entity(forEntityName: "Photo", in: moc)
-        
-        do {
-            let result = try  moc.fetch(request)
-            if result.count > 0 {
-                return result[0]
-            }
-        } catch {
-            let fetchError = error as NSError
-            print(fetchError)
-        }
-        
-     return nil
-    }
-    
     func deleteAll(){
-        let request = NSFetchRequest<Photo>(entityName: "Recipe")
+        let request = NSFetchRequest<Recipe>(entityName: "Recipe")
         request.predicate = NSPredicate(value: true)
         
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>)
@@ -103,14 +70,7 @@ class CoreDataManager {
             print(error)
         }
     }
-    
-    func createEntity(by photoObj: PhotoObj) {
-        let photoEntity = createPhotoEntity()
-        photoEntity.createdDate = photoObj.createdDate
-        photoEntity.id = photoObj.id
-        photoEntity.photo = Data()
-        saveContext()
-    }
+
     
     func save(_ recipeObj: RecipeObj) {
         let recipeEntity = create(entity: "Recipe") as! Recipe

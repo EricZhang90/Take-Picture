@@ -8,115 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="694-jl-JpW">
-            <objects>
-                <viewController id="EOR-f1-HWU" customClass="ViewController" customModule="Take_Picture" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="69L-G2-FiV"/>
-                        <viewControllerLayoutGuide type="bottom" id="8tE-lp-7sV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="C0q-zg-D6m">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfs-vb-MNl">
-                                <state key="normal" title="Add Pic"/>
-                                <connections>
-                                    <action selector="takePic:" destination="EOR-f1-HWU" eventType="touchUpInside" id="3Kc-Wt-8Ib"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OXi-Ga-zva"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjq-Kj-zBY">
-                                <state key="normal" title="Set Lan"/>
-                                <connections>
-                                    <segue destination="fta-Kw-IgJ" kind="show" id="6jd-lS-7oS"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cxO-VK-0A8">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="DAc-Ex-3TO"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="hfs-vb-MNl" firstAttribute="centerX" secondItem="OXi-Ga-zva" secondAttribute="centerX" id="5Wg-Hh-bfs"/>
-                            <constraint firstItem="hfs-vb-MNl" firstAttribute="top" secondItem="OXi-Ga-zva" secondAttribute="bottom" constant="41" id="JcJ-ib-fce"/>
-                            <constraint firstItem="cxO-VK-0A8" firstAttribute="top" secondItem="hjq-Kj-zBY" secondAttribute="bottom" constant="8" symbolic="YES" id="OfF-4y-cWU"/>
-                            <constraint firstItem="OXi-Ga-zva" firstAttribute="leading" secondItem="C0q-zg-D6m" secondAttribute="leadingMargin" constant="51" id="RbY-eh-h5o"/>
-                            <constraint firstItem="OXi-Ga-zva" firstAttribute="top" secondItem="69L-G2-FiV" secondAttribute="bottom" constant="264" id="X2U-BI-kfW"/>
-                            <constraint firstItem="OXi-Ga-zva" firstAttribute="top" secondItem="cxO-VK-0A8" secondAttribute="bottom" constant="16" id="eLo-6n-o6A"/>
-                            <constraint firstItem="8tE-lp-7sV" firstAttribute="top" secondItem="OXi-Ga-zva" secondAttribute="bottom" constant="255" id="hhl-9b-fBd"/>
-                            <constraint firstItem="cxO-VK-0A8" firstAttribute="trailing" secondItem="OXi-Ga-zva" secondAttribute="trailing" id="jO4-DS-cVc"/>
-                            <constraint firstItem="hfs-vb-MNl" firstAttribute="centerX" secondItem="C0q-zg-D6m" secondAttribute="centerX" id="oPW-j7-QD0"/>
-                            <constraint firstItem="hjq-Kj-zBY" firstAttribute="leading" secondItem="C0q-zg-D6m" secondAttribute="leading" constant="158" id="v50-eo-Ciy"/>
-                            <constraint firstItem="cxO-VK-0A8" firstAttribute="centerX" secondItem="OXi-Ga-zva" secondAttribute="centerX" id="vaP-Y7-TJu"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="bQ5-ee-odh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="thR-a3-RRd">
-                            <connections>
-                                <action selector="share:" destination="EOR-f1-HWU" id="Zse-E1-4tg"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addBtn" destination="hfs-vb-MNl" id="xSW-MX-azd"/>
-                        <outlet property="imageView" destination="OXi-Ga-zva" id="a1W-li-GdV"/>
-                        <outlet property="sImage" destination="cxO-VK-0A8" id="Q0j-s5-3HF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pDi-BE-vBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2735.1999999999998" y="-10.344827586206897"/>
-        </scene>
-        <!--Lan View Controller-->
-        <scene sceneID="7il-yV-KMs">
-            <objects>
-                <viewController id="fta-Kw-IgJ" customClass="LanViewController" customModule="Take_Picture" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oGU-vi-drL"/>
-                        <viewControllerLayoutGuide type="bottom" id="OnB-90-WWm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="d8y-7x-F0o">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXG-Jt-gbv">
-                                <state key="normal" title="EN"/>
-                                <connections>
-                                    <action selector="en:" destination="fta-Kw-IgJ" eventType="touchUpInside" id="huC-wQ-aNf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dz8-7y-Lh7">
-                                <state key="normal" title="JA"/>
-                                <connections>
-                                    <action selector="ja:" destination="fta-Kw-IgJ" eventType="touchUpInside" id="9b4-dS-QVf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43a-vB-Bk2">
-                                <frame key="frameInset" minX="41" minY="20" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="7TQ-2o-MXP" kind="show" id="xzi-xn-ZVZ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PXG-Jt-gbv" firstAttribute="leading" secondItem="d8y-7x-F0o" secondAttribute="leadingMargin" constant="58" id="0fj-DZ-JZr"/>
-                            <constraint firstItem="PXG-Jt-gbv" firstAttribute="top" secondItem="oGU-vi-drL" secondAttribute="bottom" constant="79" id="3JA-c3-B3f"/>
-                            <constraint firstItem="PXG-Jt-gbv" firstAttribute="baseline" secondItem="dz8-7y-Lh7" secondAttribute="baseline" id="Pye-Tf-VOY"/>
-                            <constraint firstItem="dz8-7y-Lh7" firstAttribute="leading" secondItem="PXG-Jt-gbv" secondAttribute="trailing" constant="76" id="bBt-k2-2Ke"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M8c-lZ-ENr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3469.5999999999999" y="28.335832083958024"/>
-        </scene>
         <!--Picture Library View Controller-->
         <scene sceneID="zUp-52-2Jy">
             <objects>
@@ -188,25 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkA-hD-zRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2468" y="-648.12593703148434"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="d6z-uf-btG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7TQ-2o-MXP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xuv-VC-A0e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="EOR-f1-HWU" kind="relationship" relationship="rootViewController" id="zNk-fa-VAa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6AK-az-KRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-82.400000000000006" y="-10.344827586206897"/>
+            <point key="canvasLocation" x="2716" y="-511"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WqX-wh-utx">
