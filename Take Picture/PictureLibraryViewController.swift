@@ -22,7 +22,6 @@ class PictureLibraryViewController: UITableViewController {
 
     fileprivate var photoCollectionView: UICollectionView!
     fileprivate let collectionLayout = UICollectionViewFlowLayout()
-    
     fileprivate let thumbnailSize:CGFloat = 70.0
     fileprivate let sectionInsets = UIEdgeInsets(top: 10, left: 5.0, bottom: 10.0, right: 5.0)
     
@@ -37,14 +36,13 @@ class PictureLibraryViewController: UITableViewController {
     
     fileprivate let CDManager = CoreDataManager.manager
     
-    //fileprivate var
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func actions(_ sender: AnyObject) {
-        let alertController = UIAlertController(title: "Actions", message: "Choose source", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Actions", message: "", preferredStyle: .actionSheet)
         
         let save = UIAlertAction(title: "Save", style: .default) { (UIAlertAction) in
             self.saveRecipe()
@@ -72,16 +70,14 @@ class PictureLibraryViewController: UITableViewController {
     }
     
     @IBAction func takePic(_ sender: AnyObject) {
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) == true else
+        guard UIImagePickerController.isSourceTypeAvailable(.camera), UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else
         {
             return
         }
         
-        let alertController = UIAlertController(title: "Add Pic", message: "Choose source", preferredStyle: .alert)
-        
-        let text = NSLocalizedString("Pick from photo library", comment: "a")
-        
-        let chooseFromPL = UIAlertAction(title: text, style: .default) { (UIAlertAction) in
+        let alertController = UIAlertController(title: "Add Photo", message: "Choose source", preferredStyle: .alert)
+
+        let chooseFromPL = UIAlertAction(title: "Pick from photo library", style: .default) { (UIAlertAction) in
             
             let imagePicker = UIImagePickerController()
             imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
@@ -92,9 +88,8 @@ class PictureLibraryViewController: UITableViewController {
         }
         
         alertController.addAction(chooseFromPL)
-        
-        let textTwo = NSLocalizedString("Take Pic", comment: "a")
-        let takePic = UIAlertAction(title: textTwo, style: .default) { (UIAlertAction) in
+
+        let takePic = UIAlertAction(title: "Take Pic", style: .default) { (UIAlertAction) in
             
             let imagePicker = UIImagePickerController()
             imagePicker.sourceType = .camera
@@ -111,62 +106,6 @@ class PictureLibraryViewController: UITableViewController {
         alertController.addAction(cancel)
         
         present(alertController, animated: true, completion: nil)
-    }
-}
-
-// MARK: Collection View Data Source
-extension PictureLibraryViewController:  UICollectionViewDataSource {
-    
-    func addCollectionView(in superView: UIView) {
-        
-        photoCollectionView = UICollectionView(frame: superView.frame, collectionViewLayout: collectionLayout)
-        
-        photoCollectionView.backgroundColor = UIColor.white
-        
-        photoCollectionView.delegate = self
-        photoCollectionView.dataSource = self
-        
-        photoCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
-        
-        superView.addSubview(photoCollectionView)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
-        
-        cell.add(photos[(indexPath as NSIndexPath).row])
-        
-        return cell
-    }
-    
-
-}
-
-// MARK:UICollectionViewDelegateFlowLayout
-extension PictureLibraryViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: thumbnailSize, height: thumbnailSize)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let fullScreenPhotoVC = storyboard?.instantiateViewController(withIdentifier: "FullScreenPhotoViewController") as! FullScreenPhotoViewController
-        
-        fullScreenPhotoVC.photo = photos[(indexPath as NSIndexPath).row]
-        
-        navigationController?.pushViewController(fullScreenPhotoVC, animated: true)
     }
 }
 
@@ -239,7 +178,62 @@ extension PictureLibraryViewController {
     }
 }
 
-// MARK: Get Picture: UIImagePickerController
+// MARK: UICollectionView Delegate
+extension PictureLibraryViewController: UICollectionViewDelegateFlowLayout {
+    
+    func addCollectionView(in superView: UIView) {
+        
+        photoCollectionView = UICollectionView(frame: superView.frame, collectionViewLayout: collectionLayout)
+        
+        photoCollectionView.backgroundColor = UIColor.white
+        
+        photoCollectionView.delegate = self
+        photoCollectionView.dataSource = self
+        
+        photoCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
+        
+        superView.addSubview(photoCollectionView)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: thumbnailSize, height: thumbnailSize)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let fullScreenPhotoVC = storyboard?.instantiateViewController(withIdentifier: "FullScreenPhotoViewController") as! FullScreenPhotoViewController
+        
+        fullScreenPhotoVC.photo = photos[(indexPath as NSIndexPath).row]
+        
+        navigationController?.pushViewController(fullScreenPhotoVC, animated: true)
+    }
+}
+
+// MARK: Collection View Data Source
+extension PictureLibraryViewController:  UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+        
+        cell.add(photos[(indexPath as NSIndexPath).row])
+        
+        return cell
+    }
+}
+
+// MARK: UIImagePickerController
 extension PictureLibraryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
