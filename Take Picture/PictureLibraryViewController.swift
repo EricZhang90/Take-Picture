@@ -12,13 +12,13 @@ import MobileCoreServices
 import MessageUI
 
 
- enum SourceType {
+enum SourceType {
     case photoLibrary
     case camera
 }
 
 
-class PictureLibraryViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class PictureLibraryViewController: UITableViewController {
 
     fileprivate var photoCollectionView: UICollectionView!
     fileprivate let collectionLayout = UICollectionViewFlowLayout()
@@ -32,7 +32,7 @@ class PictureLibraryViewController: UITableViewController, UICollectionViewDataS
     
     fileprivate var inputTF: RoudedTextField!
     
-    fileprivate var name: String!
+    fileprivate var name: String?
     fileprivate var steps = [String]()
     
     fileprivate let CDManager = CoreDataManager.manager
@@ -41,21 +41,6 @@ class PictureLibraryViewController: UITableViewController, UICollectionViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    // MARK: collection view
-    func addCollectionView(in superView: UIView) {
-        
-        photoCollectionView = UICollectionView(frame: superView.frame, collectionViewLayout: collectionLayout)
-        
-        photoCollectionView.backgroundColor = UIColor.white
-        
-        photoCollectionView.delegate = self
-        photoCollectionView.dataSource = self
-        
-        photoCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
-        
-        superView.addSubview(photoCollectionView)
     }
     
     @IBAction func actions(_ sender: AnyObject) {
@@ -127,8 +112,25 @@ class PictureLibraryViewController: UITableViewController, UICollectionViewDataS
         
         present(alertController, animated: true, completion: nil)
     }
+}
+
+// MARK: Collection View Data Source
+extension PictureLibraryViewController:  UICollectionViewDataSource {
     
-    // MARK: UICollectionViewDataSource
+    func addCollectionView(in superView: UIView) {
+        
+        photoCollectionView = UICollectionView(frame: superView.frame, collectionViewLayout: collectionLayout)
+        
+        photoCollectionView.backgroundColor = UIColor.white
+        
+        photoCollectionView.delegate = self
+        photoCollectionView.dataSource = self
+        
+        photoCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
+        
+        superView.addSubview(photoCollectionView)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
@@ -145,6 +147,19 @@ class PictureLibraryViewController: UITableViewController, UICollectionViewDataS
         return cell
     }
     
+
+}
+
+// MARK:UICollectionViewDelegateFlowLayout
+extension PictureLibraryViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: thumbnailSize, height: thumbnailSize)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let fullScreenPhotoVC = storyboard?.instantiateViewController(withIdentifier: "FullScreenPhotoViewController") as! FullScreenPhotoViewController
@@ -152,15 +167,6 @@ class PictureLibraryViewController: UITableViewController, UICollectionViewDataS
         fullScreenPhotoVC.photo = photos[(indexPath as NSIndexPath).row]
         
         navigationController?.pushViewController(fullScreenPhotoVC, animated: true)
-    }
-    
-    // MARK:UICollectionViewDelegateFlowLayout
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: thumbnailSize, height: thumbnailSize)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
     }
 }
 
@@ -196,6 +202,13 @@ extension PictureLibraryViewController {
             inputTF = RoudedTextField(frame: frame, superView: cell.contentView)
             inputTF.delegate = self
             inputTF.tag = indexPath.section * 10 + indexPath.row
+            
+            if indexPath.section == 0, name != nil {
+                inputTF.text = name
+            }
+            else if indexPath.section == 1, steps.count == 3{
+                inputTF.text = steps[indexPath.row]
+            }
         }
         else {
             addCollectionView(in: cell.contentView)
@@ -226,7 +239,7 @@ extension PictureLibraryViewController {
     }
 }
 
-// MARK: Get Picture
+// MARK: Get Picture: UIImagePickerController
 extension PictureLibraryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -328,11 +341,50 @@ extension PictureLibraryViewController {
     }
     
     func shareRecipe() {
+        let mailViewController = MFMailComposeViewController()
+        mailViewController.setSubject("Take Pic")
+        mailViewController.setMessageBody("There is my app data", isHTML: false)
         
+        let recipeObj = RecipeObj(recipeID: 999)
+        
+        let recipeData = NSKeyedArchiver.archivedData(withRootObject: recipeObj)
+        
+        mailViewController.addAttachmentData(recipeData, mimeType: "application/takePicture", fileName: "recipe.abc")
+        mailViewController.mailComposeDelegate = self
+        
+        present(mailViewController, animated: true, completion: nil)
     }
     
     func loadRecipe() {
-        
+        if let recipe = CDManager.fetchRecipe(by: 999) {
+            name = recipe.name
+            
+            let sorter = NSSortDescriptor(key: "idx", ascending: true)
+            
+            if let pictures = recipe.pictures {
+                for pic in pictures.sortedArray(using: [sorter]) {
+                    let picEntity = pic as! Picture
+                    self.photos.append(UIImage(data: picEntity.pictureDate!)!)
+                }
+            }
+            
+            for step in recipe.steps!.sortedArray(using: [sorter]) {
+                let stepEntity: Step = step as! Step
+                self.steps.append(stepEntity.desc!)
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
+// MARK: Mail Delegate
+extension PictureLibraryViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        print(error?.localizedDescription)
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+}

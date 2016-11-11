@@ -23,16 +23,16 @@ class RecipeObj: NSObject, NSCoding {
             createdDate = recipe.createdDate
             self.recipeID = recipeID
             
+            let sorter = NSSortDescriptor(key: "idx", ascending: true)
             
-            // TODO: add order!
             if let pictures = recipe.pictures {
-                for pic in pictures {
+                for pic in pictures.sortedArray(using: [sorter]) {
                     let picEntity = pic as! Picture
                     self.photos.append(picEntity.pictureDate!)
                 }
             }
             
-            for step in recipe.steps! {
+            for step in recipe.steps!.sortedArray(using: [sorter]) {
                 let stepEntity: Step = step as! Step
                 self.steps.append(stepEntity.desc!)
             }
