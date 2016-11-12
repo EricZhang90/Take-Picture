@@ -83,7 +83,7 @@ extension CoreDataManager {
         let recipeEntity = create(entity: "Recipe") as! Recipe
         
         recipeEntity.name = recipeObj.name
-        recipeEntity.createdDate = Date()
+        recipeEntity.createdDate = recipeObj.createdDate
         recipeEntity.recipeID = recipeObj.recipeID
         
         for i in 0..<recipeObj.steps.count {

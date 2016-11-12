@@ -19,7 +19,7 @@ enum SourceType {
 
 
 class PictureLibraryViewController: UITableViewController {
-
+    
     fileprivate var photoCollectionView: UICollectionView!
     fileprivate let collectionLayout = UICollectionViewFlowLayout()
     fileprivate let thumbnailSize:CGFloat = 70.0
@@ -52,7 +52,7 @@ class PictureLibraryViewController: UITableViewController {
     func handleOpenURL() {
         guard let url = UserDefaults.standard.url(forKey: "importURL"),
             let recipeObj = RecipeObj.importFrom(url) else {
-            return
+                return
         }
         
         recipeObj.createdDate = Date()
@@ -101,7 +101,7 @@ class PictureLibraryViewController: UITableViewController {
         }
         
         let alertController = UIAlertController(title: "Add Photo", message: "Choose source", preferredStyle: .alert)
-
+        
         let chooseFromPL = UIAlertAction(title: "Pick from photo library", style: .default) { (UIAlertAction) in
             
             let imagePicker = UIImagePickerController()
@@ -113,7 +113,7 @@ class PictureLibraryViewController: UITableViewController {
         }
         
         alertController.addAction(chooseFromPL)
-
+        
         let takePic = UIAlertAction(title: "Take Pic", style: .default) { (UIAlertAction) in
             
             let imagePicker = UIImagePickerController()
@@ -314,7 +314,7 @@ extension PictureLibraryViewController: UITextFieldDelegate {
         else if textField.tag == 12 {
             steps[2] = textField.text!
         }
-
+        
         return true
     }
 }
@@ -329,11 +329,11 @@ extension PictureLibraryViewController {
         CDManager.deleteAll()
         
         let recipe = CDManager.create(entity: "Recipe") as! Recipe
-
+        
         let update: [String : Any] = ["name": name!,
                                       "createdDate": Date(),
                                       "recipeID": Double(999)]
-
+        
         recipe.setValuesForKeys(update)
         
         for i in 0..<steps.count {
