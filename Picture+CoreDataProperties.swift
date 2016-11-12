@@ -16,7 +16,7 @@ extension Picture {
         return NSFetchRequest<Picture>(entityName: "Picture");
     }
 
-    @NSManaged public var pictureDate: Data?
+    @NSManaged public var pictureData: Data?
     @NSManaged public var idx: Int16
     @NSManaged public var recipe: Recipe?
 

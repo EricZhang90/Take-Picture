@@ -29,7 +29,7 @@ class RecipeObj: NSObject, NSCoding {
             if let pictures = recipe.pictures {
                 for pic in pictures.sortedArray(using: [sorter]) {
                     let picEntity = pic as! Picture
-                    self.photos.append(picEntity.pictureDate!)
+                    self.photos.append(picEntity.pictureData!)
                 }
             }
             

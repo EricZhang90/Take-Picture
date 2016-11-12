@@ -14,7 +14,7 @@ import UIKit
 class CoreDataManager {
     static let manager = CoreDataManager()
     var moc:NSManagedObjectContext { return self.persistentContainer.viewContext }
-    /*
+    
     func createRecipeEntity() -> Recipe {
         let recipe: Recipe = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: persistentContainer.viewContext) as! Recipe
         
@@ -24,81 +24,7 @@ class CoreDataManager {
         
         return recipe
     }
-    */
-    func create(entity: String) -> NSManagedObject {
-        let mo = NSEntityDescription.insertNewObject(forEntityName: entity, into: self.moc)
-        saveContext()
-        return mo
-    }
     
-    func update(entity entityName: String, with data:Dictionary<String, Any>, by predicate:NSPredicate) {
-        let request = NSFetchRequest<NSFetchRequestResult>()
-        request.entity = NSEntityDescription.entity(forEntityName: entityName, in: moc)
-        request.predicate = predicate
-        
-        do{
-            let fetchedEntity = try moc.execute(request)
-            fetchedEntity.setValuesForKeys(data)
-        }catch {
-            fatalError("Failed to fetch \(entityName): \(error)")
-        }
-    }
-    
-    func fetchRecipe(by id: Double) -> Recipe? {
-        let request = NSFetchRequest<Recipe>()
-        request.entity = NSEntityDescription.entity(forEntityName: "Recipe", in: moc)
-        request.predicate = NSPredicate(format: "recipeID = %lf", id)
-        
-        do {
-            let results = try moc.fetch(request)
-            
-            return results.first
-        }catch {
-            fatalError("Failed to fetch Recipe: \(error)")
-        }
-    }
-    
-    func deleteAll(){
-        let request = NSFetchRequest<Recipe>(entityName: "Recipe")
-        request.predicate = NSPredicate(value: true)
-        
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>)
-        
-        do {
-            try persistentContainer.viewContext.execute(deleteRequest)
-        } catch let error as NSError {
-            print(error)
-        }
-    }
-
-    
-    func save(_ recipeObj: RecipeObj) {
-        let recipeEntity = create(entity: "Recipe") as! Recipe
-        
-        recipeEntity.name = recipeObj.name
-        recipeEntity.createdDate = recipeObj.createdDate
-        
-        for i in 0..<recipeObj.steps.count {
-            let step: Step = create(entity: "Step") as! Step
-            step.idx = Int16(i)
-            step.desc = recipeObj.steps[i]
-            recipeEntity.addToSteps(step)
-        }
-        
-        guard recipeObj.photos.count > 0 else {
-            saveContext()
-            return
-        }
-        
-        for i in 0..<recipeObj.photos.count {
-            let pic: Picture = create(entity: "Picture") as! Picture
-            pic.idx = Int16(i)
-            pic.pictureDate = recipeObj.photos[i]
-            recipeEntity.addToPictures(pic)
-        }
-        
-        saveContext()
-    }
     
     // MARK: - Core Data stack
     
@@ -127,6 +53,69 @@ class CoreDataManager {
     }
 }
 
+// MARK: CRUD
 extension CoreDataManager {
+    func create(entity: String) -> NSManagedObject {
+        let mo = NSEntityDescription.insertNewObject(forEntityName: entity, into: self.moc)
+        saveContext()
+        return mo
+    }
     
+    func fetchRecipe(by id: Double) -> Recipe? {
+        let request = NSFetchRequest<Recipe>()
+        request.entity = NSEntityDescription.entity(forEntityName: "Recipe", in: moc)
+        request.predicate = NSPredicate(format: "recipeID = %lf", id)
+        
+        do {
+            let results = try moc.fetch(request)
+            
+            return results.first
+        }catch {
+            fatalError("Failed to fetch Recipe: \(error)")
+        }
+    }
+    
+// not use update so far
+    
+    func deleteAll(){
+        let request = NSFetchRequest<Recipe>(entityName: "Recipe")
+        request.predicate = NSPredicate(value: true)
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>)
+        
+        do {
+            try persistentContainer.viewContext.execute(deleteRequest)
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
+    
+    func save(_ recipeObj: RecipeObj) {
+        let recipeEntity = create(entity: "Recipe") as! Recipe
+        
+        recipeEntity.name = recipeObj.name
+        recipeEntity.createdDate = Date()
+        recipeEntity.recipeID = recipeObj.recipeID
+        
+        for i in 0..<recipeObj.steps.count {
+            let step: Step = create(entity: "Step") as! Step
+            step.idx = Int16(i)
+            step.desc = recipeObj.steps[i]
+            recipeEntity.addToSteps(step)
+            saveContext()
+        }
+        
+        guard recipeObj.photos.count > 0 else {
+            return
+        }
+        
+        for i in 0..<recipeObj.photos.count {
+            let pic: Picture = create(entity: "Picture") as! Picture
+            pic.idx = Int16(i)
+            pic.pictureData = recipeObj.photos[i]
+            recipeEntity.addToPictures(pic)
+            saveContext()
+        }
+    }
 }

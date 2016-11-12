@@ -32,7 +32,7 @@ class PictureLibraryViewController: UITableViewController {
     fileprivate var inputTF: RoudedTextField!
     
     fileprivate var name: String?
-    fileprivate var steps = [String]()
+    fileprivate var steps = ["", "", ""]
     
     fileprivate let CDManager = CoreDataManager.manager
     
@@ -45,6 +45,8 @@ class PictureLibraryViewController: UITableViewController {
             selector: #selector(handleOpenURL),
             name: NSNotification.Name(rawValue: "newRecipeComing"),
             object: nil)
+        
+        tableView.allowsSelection = false
     }
     
     func handleOpenURL() {
@@ -69,6 +71,7 @@ class PictureLibraryViewController: UITableViewController {
         
         let save = UIAlertAction(title: "Save", style: .default) { (UIAlertAction) in
             self.saveRecipe()
+            print("SAVE....")
         }
         
         alertController.addAction(save)
@@ -327,20 +330,17 @@ extension PictureLibraryViewController {
         CDManager.deleteAll()
         
         let recipe = CDManager.create(entity: "Recipe") as! Recipe
-        
-        let predicate = NSPredicate(format: "objectID = %@", recipe.recipeID)
-        
-        let update: [String : Any] = ["name": name,
+
+        let update: [String : Any] = ["name": name!,
                                       "createdDate": Date(),
-                                      "recipeID": 999]
-        
-        CDManager.update(entity: "Recipe", with: update, by: predicate)
+                                      "recipeID": Double(999)]
+
+        recipe.setValuesForKeys(update)
         
         for i in 0..<steps.count {
             let step: Step = CDManager.create(entity: "Step") as! Step
+            step.setValuesForKeys(["desc": steps[i], "idx": i])
             recipe.addToSteps(step)
-            let predicate = NSPredicate(format: "recipe.objectID = %", recipe.objectID)
-            CDManager.update(entity: "Step", with: ["desc": steps[i], "idx": Int16(i)], by:predicate)
         }
         
         guard photos.count > 0 else {
@@ -349,10 +349,9 @@ extension PictureLibraryViewController {
         
         for i in 0..<photos.count {
             let pic: Picture = CDManager.create(entity: "Picture") as! Picture
-            recipe.addToPictures(pic)
-            let predicate = NSPredicate(format: "recipe.objectID = %", recipe.objectID)
             let picDate: Data = UIImagePNGRepresentation(photos[i])!
-            CDManager.update(entity: "Picture", with: ["desc": picDate, "idx": Int16(i)], by:predicate)
+            pic.setValuesForKeys(["pictureData": picDate, "idx": i])
+            recipe.addToPictures(pic)
         }
     }
     
@@ -381,7 +380,7 @@ extension PictureLibraryViewController {
             if let pictures = recipe.pictures {
                 for pic in pictures.sortedArray(using: [sorter]) {
                     let picEntity = pic as! Picture
-                    self.photos.append(UIImage(data: picEntity.pictureDate!)!)
+                    self.photos.append(UIImage(data: picEntity.pictureData!)!)
                 }
             }
             
