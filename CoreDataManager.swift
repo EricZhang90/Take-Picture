@@ -14,18 +14,7 @@ import UIKit
 class CoreDataManager {
     static let manager = CoreDataManager()
     var moc:NSManagedObjectContext { return self.persistentContainer.viewContext }
-    
-    func createRecipeEntity() -> Recipe {
-        let recipe: Recipe = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: persistentContainer.viewContext) as! Recipe
-        
-        recipe.createdDate = Date()
-        
-        saveContext()
-        
-        return recipe
-    }
-    
-    
+
     // MARK: - Core Data stack
     
     lazy var persistentContainer: NSPersistentContainer = {
