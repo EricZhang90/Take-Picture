@@ -69,7 +69,6 @@
 			children = (
 				07DF17CD1DD1F4CB00CDF19B /* Utities */,
 				07DF17D71DD2428C00CDF19B /* Model */,
-				07DF17E41DD242BE00CDF19B /* ViewModel */,
 				07DF17D41DD236C200CDF19B /* Protocol */,
 				07DF17C61DD1DAB400CDF19B /* View */,
 				07DF17C51DD1DA8400CDF19B /* Controller */,
@@ -149,6 +148,7 @@
 		07DF17D71DD2428C00CDF19B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				07DF17E51DD2EAD300CDF19B /* RecipeObj.swift */,
 				0702BA8E1DD425F900DBDF88 /* Step+CoreDataClass.swift */,
 				0702BA8F1DD425F900DBDF88 /* Step+CoreDataProperties.swift */,
 				0702BA901DD425F900DBDF88 /* Picture+CoreDataClass.swift */,
@@ -157,15 +157,6 @@
 				0702BA931DD425F900DBDF88 /* Recipe+CoreDataProperties.swift */,
 			);
 			name = Model;
-			path = "Take Picture";
-			sourceTree = "<group>";
-		};
-		07DF17E41DD242BE00CDF19B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				07DF17E51DD2EAD300CDF19B /* RecipeObj.swift */,
-			);
-			name = ViewModel;
 			path = "Take Picture";
 			sourceTree = "<group>";
 		};
