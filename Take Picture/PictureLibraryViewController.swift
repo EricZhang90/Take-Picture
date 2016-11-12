@@ -71,7 +71,6 @@ class PictureLibraryViewController: UITableViewController {
         
         let save = UIAlertAction(title: "Save", style: .default) { (UIAlertAction) in
             self.saveRecipe()
-            print("SAVE....")
         }
         
         alertController.addAction(save)
