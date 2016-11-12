@@ -40,6 +40,7 @@ class RecipeObj: NSObject, NSCoding {
         }
     }
     
+    // Email attchment -> Recipe Object
     static func importFrom(_ url:URL) -> RecipeObj? {
         let data: Data?
         do {
