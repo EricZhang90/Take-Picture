@@ -54,6 +54,7 @@ class CoreDataManager {
 }
 
 // MARK: CRUD
+// not use update so far
 extension CoreDataManager {
     func create(entity: String) -> NSManagedObject {
         let mo = NSEntityDescription.insertNewObject(forEntityName: entity, into: self.moc)
@@ -74,9 +75,7 @@ extension CoreDataManager {
             fatalError("Failed to fetch Recipe: \(error)")
         }
     }
-    
-// not use update so far
-    
+
     func deleteAll(){
         let request = NSFetchRequest<Recipe>(entityName: "Recipe")
         request.predicate = NSPredicate(value: true)
